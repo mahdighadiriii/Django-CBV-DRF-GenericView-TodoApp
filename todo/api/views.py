@@ -2,10 +2,10 @@ from rest_framework.response import Response
 from todo.models import Task
 from .serializers import TaskSerializer
 from rest_framework import permissions
-from rest_framework import viewsets
+from rest_framework import generics
 
 
-class TodoListView(viewsets.ModelViewSet):
+class TodoListView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -27,7 +27,8 @@ class TodoListView(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class TodoDetailApiView(viewsets.ModelViewSet):
+class TodoDetailApiView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
     lookup_field = "todo_id"

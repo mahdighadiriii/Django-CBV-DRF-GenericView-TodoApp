@@ -1,14 +1,12 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
+
 from .views import TodoListView, TodoDetailApiView
 
-router = DefaultRouter()
-router.register("task-list", TodoListView, basename="task_list")
-router.register(
-    "task-detail",
-    TodoDetailApiView,
-    basename="task_detail",
-)
-
-urlpatterns = []
-
-urlpatterns += router.urls
+urlpatterns = [
+    path("task-list/", TodoListView.as_view(), name="task_list"),
+    path(
+        "task-detail/<int:todo_id>/",
+        TodoDetailApiView.as_view(),
+        name="task_detail",
+    ),
+]
