@@ -1,6 +1,3 @@
-# Django-CBV-DRF-GenericView-TodoApp
- A Todo app Django project based on Django Rest Framework with Class Based Views and GenericView
-
 <h1 align="center">Django Class Based Views RestFramework (GenericView) Todo App</h1>
 <h3 align="center">A simple todo app project with class based views restframework with GenericView classess for learning</h3>
 <p align="center">
