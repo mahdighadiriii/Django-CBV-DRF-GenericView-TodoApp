@@ -19,6 +19,9 @@ class LogoutApiView(generics.GenericAPIView):
 
 
 class RegisterApiView(generics.GenericAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
+
     def post(self, request, *args, **kwargs):
         """
         Register class
@@ -39,6 +42,9 @@ class RegisterApiView(generics.GenericAPIView):
 
 
 class LoginApiView(generics.GenericAPIView):
+    queryset = User.objects.all()
+    serializer_class = LoginSerializer
+
     def post(self, request, *args, **kwargs):
         """
         Login view to get user credentials

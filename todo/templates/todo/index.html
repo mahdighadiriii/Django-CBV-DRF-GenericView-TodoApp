@@ -224,7 +224,7 @@
     let logout = document.getElementById('logout')
     logout.addEventListener('click', function (e) {
         const Http = new XMLHttpRequest();
-        const url = 'http://127.0.0.1:8000/accounts/api/auth/logout/'
+        const url = 'http://127.0.0.1:8000/accounts/api/logout/'
         Http.open("GET", url);
         Http.send();
 
